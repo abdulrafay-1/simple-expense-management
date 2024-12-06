@@ -1,6 +1,6 @@
 "use client";
-import { useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Select } from "./components/Select";
 
 const Home = () => {
@@ -9,10 +9,6 @@ const Home = () => {
   const [balance, setBalance] = useState(0);
   const [userData, setUserData] = useState([]);
   const [category, setCategory] = useState("CashIn");
-
-  useEffect(() => {
-    setBalance(cashIn - cashOut);
-  }, [cashIn, cashOut]);
 
   const { register, unregister, reset, handleSubmit } = useForm();
 
@@ -23,6 +19,23 @@ const Home = () => {
     const sum = filterCategory.reduce((a, b) => a + +b.amount, 0);
     return sum;
   };
+
+  useEffect(() => {
+    const local = JSON.parse(localStorage.getItem("data"));
+    if (local) {
+      setUserData(local);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(userData));
+    setCashIn(calculateSumOfCategory("Cash In"));
+    setCashOut(calculateSumOfCategory("Cash Out"));
+  }, [userData]);
+
+  useEffect(() => {
+    setBalance(cashIn - cashOut);
+  }, [cashIn, cashOut]);
 
   const onSubmit = (data) => {
     userData.unshift({
@@ -40,7 +53,7 @@ const Home = () => {
     });
   };
 
-  const handleCategory = (e) => {
+  const handleCategory = () => {
     if (category === "CashIn") {
       setCategory("CashOut");
       unregister("cashInCategory");
