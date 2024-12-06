@@ -119,7 +119,20 @@ const Home = () => {
             <Select
               name="cashInCategory"
               register={register}
-              options={["Salary", "Businesses", "Investments", "Loans"]}
+              options={[
+                "Salary",
+                "Businesses",
+                "Investments",
+                "Loans",
+                "Rental Income",
+                "Freelancing",
+                "Dividends",
+                "Savings Interest",
+                "Gift Money",
+                "Side Hustles",
+                "Bonuses",
+                "Pensions",
+              ]}
               className="select select-bordered w-full"
             />
           ) : (
@@ -128,14 +141,20 @@ const Home = () => {
               register={register}
               options={[
                 "Groceries",
-                "Fuel",
-                "Food",
-                "Car/Bike",
-                "Taxi",
-                "Clothes",
+                "Transportation",
+                "Housing",
+                "Utilities",
+                "Healthcare",
+                "Education",
                 "Shopping",
                 "Entertainment",
-                "Electricity",
+                "Dining Out",
+                "Savings",
+                "Travel",
+                "Insurance",
+                "Debt Repayment",
+                "Charity",
+                "Personal Care",
               ]}
               className="select select-bordered w-full"
             />
