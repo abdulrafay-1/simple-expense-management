@@ -195,7 +195,7 @@ const Home = () => {
                   <td>{`${new Date(item.date).toDateString()}`}</td>
                   <td>{item.amount}</td>
                   <td>
-                    <button onclick={() => deleteItem(item.date)} className="text-white bg-red-500 p-2 rounded-md"><img src="./trash.svg" width='24px' height='24px' /></button>
+                    <button onClick={() => deleteItem(item.date)} className="text-white bg-red-500 p-2 rounded-md"><img src="./trash.svg" width='24px' height='24px' /></button>
                   </td>
                 </tr>
               ))}
