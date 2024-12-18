@@ -54,6 +54,8 @@ const Home = () => {
   };
 
   const deleteItem = (id) => {
+    console.log("id",id)
+    console.log("item deleted")
     const filtered = userData.filter(item => item.date != id);
     setUserData([...filtered])
   }
@@ -190,9 +192,9 @@ const Home = () => {
                   <th>{index + 1}</th>
                   <td>{item.category}</td>
                   <td>{item.cashInCategory || item.cashOutCategory}</td>
-                  <td>{new Date(item.date).toDateString()}</td>
+                  <td>{`${new Date(item.date).toDateString()}`}</td>
                   <td>{item.amount}</td>
-                  <td onclick={() => deleteItem(item.date)}><button className="text-white bg-red-500 p-3"><img src="./trash.svg" width='24px' height='24px' /></button></td>
+                  <td onclick={() => deleteItem(item.date)}><button className="text-white bg-red-500 p-2 rounded-md"><img src="./trash.svg" width='24px' height='24px' /></button></td>
                 </tr>
               ))}
             </tbody>
