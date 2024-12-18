@@ -53,6 +53,11 @@ const Home = () => {
     });
   };
 
+  const deleteItem = (id) => {
+    const filtered = userData.filter(item => item.date != id);
+    setUserData([...filtered])
+  }
+
   const handleCategory = () => {
     if (category === "CashIn") {
       setCategory("CashOut");
@@ -170,12 +175,13 @@ const Home = () => {
           <table className="table table-lg table-zebra">
             {/* head */}
             <thead>
-              <tr className="bg-primary text-white">
+              <tr className="bg-primary text-lg text-white">
                 <th>#</th>
                 <th>Type</th>
                 <th>Category</th>
                 <th>Time</th>
                 <th>Amount</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -186,6 +192,7 @@ const Home = () => {
                   <td>{item.cashInCategory || item.cashOutCategory}</td>
                   <td>{new Date(item.date).toDateString()}</td>
                   <td>{item.amount}</td>
+                  <td onclick={() => deleteItem(item.date)}><button className="text-white bg-red-500 p-3"><img src="./trash.svg" width='24px' height='24px' /></button></td>
                 </tr>
               ))}
             </tbody>
