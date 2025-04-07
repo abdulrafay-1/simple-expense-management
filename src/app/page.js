@@ -139,7 +139,6 @@ const Home = () => {
                 "Side Hustles",
                 "Bonuses",
                 "Pensions",
-                "Food",
               ]}
               className="select select-bordered w-full"
             />
@@ -163,6 +162,7 @@ const Home = () => {
                 "Debt Repayment",
                 "Charity",
                 "Personal Care",
+                "Food",
               ]}
               className="select select-bordered w-full"
             />
