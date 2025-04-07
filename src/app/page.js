@@ -139,6 +139,7 @@ const Home = () => {
                 "Side Hustles",
                 "Bonuses",
                 "Pensions",
+                "Food",
               ]}
               className="select select-bordered w-full"
             />
